@@ -85,14 +85,14 @@
 
         ALT_O {
             bindings = <&kp RA(O)>;
-            key-positions = <39 9>;
+            key-positions = <9 39>;
             timeout-ms = <500>;
             layers = <0>;
         };
 
         ALT_U {
             bindings = <&kp RA(U)>;
-            key-positions = <39 5>;
+            key-positions = <7 39>;
             timeout-ms = <500>;
             layers = <0>;
         };
