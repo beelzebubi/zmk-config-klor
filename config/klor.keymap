@@ -53,7 +53,37 @@
             bindings = <&kp LSHFT>, <&kp CAPS>;
         };
 
-        toggle_base: toggle_base {
+        um_S: umlaut_s {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp S>, <&kp RA(S)>;
+            mods = <MOD_LALT>;
+        };
+
+        um_A: umlaut_a {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp RA(Q)>;
+            mods = <MOD_LALT>;
+        };
+
+        um_U: umlaut_u {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp U>, <&kp RA(U)>;
+            mods = <MOD_LALT>;
+        };
+
+        um_O: umlaut_o {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&kp RA(P)>;
+            mods = <MOD_LALT>;
+        };
+    };
+
+    macros {
+        tb: toggle_base {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <
@@ -65,7 +95,7 @@
             >;
         };
     };
- 
+
     combos {
         compatible = "zmk,combos";
 
@@ -250,10 +280,10 @@
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
             bindings = <
-        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &bt BT_CLR
-&trans  &bt BT_NXT  &trans        &trans        &trans        &trans                        &trans        &trans        &trans        &bt BT_NXT  &trans      &trans
-&trans  &bt BT_PRV  &trans        &trans        &trans        &trans  &trans  &toggle_base  &bt BT_PRV    &trans        &trans        &trans      &trans      &trans
-                                  &trans        &trans        &trans  &trans  &trans        &trans        &trans        &trans
+        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &bt BT_CLR
+&trans  &bt BT_NXT  &trans        &trans        &trans        &trans                  &trans        &trans        &trans        &bt BT_NXT  &trans      &trans
+&trans  &bt BT_PRV  &trans        &trans        &trans        &trans  &trans  &tb     &bt BT_PRV    &trans        &trans        &trans      &trans      &trans
+                                  &trans        &trans        &trans  &trans  &trans  &trans        &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
