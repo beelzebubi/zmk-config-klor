@@ -296,8 +296,8 @@
         compatible = "zmk,conditional-layers";
 
         ADJUST {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <LOWER RAISE>;
+            then-layer = <ADJUST>;
         };
     };
 };
