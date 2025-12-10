@@ -53,6 +53,22 @@
             bindings = <&kp LSHFT>, <&kp CAPS>;
         };
 
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+            locking;
+        };
+
+        tog_off: toggle_layer_of_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+            locking;
+        };
+
         um_S: umlaut_s {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -79,20 +95,6 @@
             #binding-cells = <0>;
             bindings = <&kp O>, <&kp RA(P)>;
             mods = <MOD_LALT>;
-        };
-    };
-
-    macros {
-        tb: toggle_base {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <
-                &macro_if layer_active 0  /* wenn QWERTY (Layer 0) aktiv */
-                    &set_base 1           /* dann schalte auf Colemak (Layer 1) */
-                &macro_else
-                    &set_base 0           /* sonst auf QWERTY */
-                &macro_endif
-            >;
         };
     };
 
@@ -274,7 +276,7 @@
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │         │ BT NXT  │         │         │         │         │                    │         │         │         │ BT NXT  │         │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │         │ BT PRV  │         │         │         │         ││        ││ LAY-TG ││ BT PRV  │         │         │         │         │         │
+   │         │ BT PRV  │         │         │         │         ││ TOG-OFF││ TOG-ON ││ BT PRV  │         │         │         │         │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │         │         │         │         ││         │         │         │         │  
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
@@ -282,7 +284,7 @@
             bindings = <
         &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &bt BT_CLR
 &trans  &bt BT_NXT  &trans        &trans        &trans        &trans                  &trans        &trans        &trans        &bt BT_NXT  &trans      &trans
-&trans  &bt BT_PRV  &trans        &trans        &trans        &trans  &trans  &tb     &bt BT_PRV    &trans        &trans        &trans      &trans      &trans
+&trans  &bt BT_PRV  &trans        &trans        &trans        &trans  &tog_off 1  &tog_on 1     &bt BT_PRV    &trans        &trans        &trans      &trans      &trans
                                   &trans        &trans        &trans  &trans  &trans  &trans        &trans        &trans
             >;
 
