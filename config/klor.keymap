@@ -86,7 +86,7 @@
         um_U: umlaut_u {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp U>, <&kp RA(U)>;
+            bindings = <&kp U>, <&kp RA(Y)>;
             mods = <MOD_LALT>;
         };
 
@@ -111,7 +111,7 @@
             bindings = <&kp LA(F4)>;
             key-positions = <3 39>;
             timeout-ms = <200>;
-            layers = <0>;
+            layers = <0 1>;
         };
     };
 
